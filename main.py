@@ -50,9 +50,9 @@ def initialize_camera():
     :return: cv2.VideoCapture-Objekt – Kamera
     """
     for i in range(3):  # Probiere die ersten 3 Kameras
-        cap = cv2.VideoCapture(1)
+        cap = cv2.VideoCapture(i)
         if cap.isOpened():
-            logger.info(f"Kamera {1} erfolgreich geöffnet.")
+            logger.info(f"Kamera {i} erfolgreich geöffnet.")
             return cap
     logger.error("Fehler: Keine Kamera gefunden. Kein Bild, kein Spaß.")
     exit(1)
