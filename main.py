@@ -115,9 +115,10 @@ def calculate_distance(depth_map, x1, y1, x2, y2, frame_shape):
     # Sicherheit: Stelle sicher, dass die Koordinaten im Bild liegen
     if 0 <= center_x < depth_map.shape[1] and 0 <= center_y < depth_map.shape[0]:
         depth_value = depth_map[center_y, center_x]
+    
         if depth_value < 0.01:
             depth_value = 0.01  # Vermeidung von extrem niedrigen Werten
-        distance = 1 / (depth_value + 0.01)  # Umkehrung der Werte (je kleiner, desto weiter weg) - Um genauer zu machen: muss Entfernungsberechnung an die Kalibrierung der Kamera machen
+        distance = 1.2 / (depth_value + 0.01)  # Umkehrung der Werte - Um genauer zu machen: muss Entfernungsberechnung an die Kalibrierung der Kamera angepasst werden
         return distance
     return None  # Wenn das Center außerhalb des Bildes liegt
 
