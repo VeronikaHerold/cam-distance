@@ -108,7 +108,7 @@ def calculate_distance(depth_map, x1, y1, x2, y2, frame_shape):
     x2_scaled = int(x2 * scale_x)
     y2_scaled = int(y2 * scale_y)
 
-    # Berechne das Center der skalierten Bounding-Box
+    # Berechne Center der skalierten Bounding-Box
     center_x = (x1_scaled + x2_scaled) // 2
     center_y = (y1_scaled + y2_scaled) // 2
 
@@ -120,7 +120,7 @@ def calculate_distance(depth_map, x1, y1, x2, y2, frame_shape):
             depth_value = 0.01  # Vermeidung von extrem niedrigen Werten
         distance = 1.2 / (depth_value + 0.01)  # Umkehrung der Werte - Um genauer zu machen: muss Entfernungsberechnung an die Kalibrierung der Kamera angepasst werden
         return distance
-    return None  # Wenn das Center außerhalb des Bildes liegt
+    return None  # Wenn Center außerhalb des Bildes liegt
 
 def main():
     # Modelle laden
